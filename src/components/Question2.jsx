@@ -21,11 +21,15 @@ export default function Question2({ setResults, results, setCurrentQuestion }) {
                 selection += fruits[idx]
             }
         })
+
         if (selection.trim().length === 0) {
             alert('Select at least 1 fruit!')
             return
         }
-        setResults([...results, [ 'Pick your favorite fruits!', selection ]])
+        let tempResults = [...results]
+        tempResults[1] = [ 'Pick your favorite fruits!', selection ]
+        setResults(tempResults)
+
         setTimeout(() => {
             setCurrentQuestion(prev => prev + 1)
         }, 500)

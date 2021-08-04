@@ -1,4 +1,4 @@
-import { Box, Progress, Text } from "@chakra-ui/react";
+import { Box, Progress, SlideFade, Text } from "@chakra-ui/react";
 import { useState } from "react";
 import Question1 from "./Question1";
 import Question2 from "./Question2";
@@ -26,19 +26,27 @@ export default function App() {
                 </Box>
                 }
                 {currentQuestion === 0 &&
+                    <SlideFade in={true} offsetY="20px">
                     <Question1 setResults={setResults} results={results} setCurrentQuestion={setCurrentQuestion} />
+                    </SlideFade>
                 }
                 {
                     currentQuestion === 1 &&
+                    <SlideFade in={true} offsetY="20px">
                     <Question2 setResults={setResults} results={results} setCurrentQuestion={setCurrentQuestion} />
+                    </SlideFade>
                 }
                 {
                     currentQuestion === 2 &&
+                    <SlideFade in={true} offsetY="20px">
                     <Question3 setResults={setResults} results={results} setCurrentQuestion={setCurrentQuestion} />
+                    </SlideFade>
                 }
                 {
                     currentQuestion === 3 &&
+                    <SlideFade in={true} offsetY="20px">
                     <Question4 setResults={setResults} results={results} setCurrentQuestion={setCurrentQuestion} />
+                    </SlideFade>
                 }
                 {
                     currentQuestion === 4 &&

@@ -7,7 +7,10 @@ export default function Question3({setResults, results, setCurrentQuestion}) {
         let tempSelect = ['transparent', 'transparent', 'transparent', 'transparent']
         tempSelect[e.target.id] = 'green'
         setBorderColor(tempSelect)
-        setResults([...results, ['How often do you exercise?', e.target.innerText]])
+        let tempResults = [...results]
+        tempResults[2] = ['How often do you exercise?', e.target.innerText]
+        setResults(tempResults)
+
         setTimeout(() => {
             setCurrentQuestion(prev => prev + 1)
         },500)
