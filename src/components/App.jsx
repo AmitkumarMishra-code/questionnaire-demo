@@ -1,4 +1,4 @@
-import { Box, Progress, SlideFade, Text } from "@chakra-ui/react";
+import { Box, SlideFade, Text } from "@chakra-ui/react";
 import { useState } from "react";
 import Question1 from "./Question1";
 import Question2 from "./Question2";
@@ -22,30 +22,48 @@ export default function App() {
 
                 {currentQuestion < 4 && <Box>
                     <Text fontSize='6xl' color='red' fontWeight='bold' px='1rem' onClick={backHandler} cursor='pointer'>‹</Text>
-                    <Progress value={(currentQuestion + 1) / 4 * 100} width='100%' size='md' />
+                    <Box
+                        width='100%'
+                        d='flex'
+                        justifyContent='flex-start'
+                        height='20px'
+                    >
+                        <Box height='100%'
+                            bgColor='#3182ce'
+                            width={`${(currentQuestion + 1) / 4 * 100}%`}
+                            d='flex'
+                            justifyContent='flex-end'
+                            alignItems = 'center'
+                            borderEndRadius = '25px'
+                            style = {{transition: 'all 500ms ease'}}
+                        >
+                            <Text color='white' pr = '5px'>{currentQuestion+1}/4
+                            </Text>
+                        </Box>
+                    </Box>
                 </Box>
                 }
                 {currentQuestion === 0 &&
                     <SlideFade in={true} offsetY="20px">
-                    <Question1 setResults={setResults} results={results} setCurrentQuestion={setCurrentQuestion} />
+                        <Question1 setResults={setResults} results={results} setCurrentQuestion={setCurrentQuestion} />
                     </SlideFade>
                 }
                 {
                     currentQuestion === 1 &&
                     <SlideFade in={true} offsetY="20px">
-                    <Question2 setResults={setResults} results={results} setCurrentQuestion={setCurrentQuestion} />
+                        <Question2 setResults={setResults} results={results} setCurrentQuestion={setCurrentQuestion} />
                     </SlideFade>
                 }
                 {
                     currentQuestion === 2 &&
                     <SlideFade in={true} offsetY="20px">
-                    <Question3 setResults={setResults} results={results} setCurrentQuestion={setCurrentQuestion} />
+                        <Question3 setResults={setResults} results={results} setCurrentQuestion={setCurrentQuestion} />
                     </SlideFade>
                 }
                 {
                     currentQuestion === 3 &&
                     <SlideFade in={true} offsetY="20px">
-                    <Question4 setResults={setResults} results={results} setCurrentQuestion={setCurrentQuestion} />
+                        <Question4 setResults={setResults} results={results} setCurrentQuestion={setCurrentQuestion} />
                     </SlideFade>
                 }
                 {
